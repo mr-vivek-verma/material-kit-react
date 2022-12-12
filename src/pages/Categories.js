@@ -1,15 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 // @mui
-import { Container, Stack, Typography } from '@mui/material';
+import { Button, Container, Stack, Typography } from '@mui/material';
 // components
 import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
 // mock
 import PRODUCTS from '../_mock/products';
+import CategoryTable from "../components/CategoryTable/CategoryTable"
+
 
 // ----------------------------------------------------------------------
 
-export default function ProductsPage() {
+export default function Categories() {
   const [openFilter, setOpenFilter] = useState(false);
 
   const handleOpenFilter = () => {
@@ -23,15 +25,22 @@ export default function ProductsPage() {
   return (
     <>
       <Helmet>
-        <title> Product Page </title>
+        <title> Categories </title>
       </Helmet>
 
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Products Category
+          Categories
         </Typography>
-
-        <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
+        <Typography sx={{display: "flex", justifyContent:" end", m:2}}>
+      <Button sx={{background:"blue", color:"#ffff"}}>Create New</Button>
+         
+        </Typography>
+        <Typography sx={{display: "flex", justifyContent:" end", m:2}}><input style={{height:"30px"}} placeholder='Search'/></Typography>
+        <Typography>
+          <CategoryTable/>
+         </Typography>
+        {/* <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <ProductFilterSidebar
               openFilter={openFilter}
@@ -43,7 +52,7 @@ export default function ProductsPage() {
         </Stack>
 
         <ProductList products={PRODUCTS} />
-        <ProductCartWidget />
+        <ProductCartWidget /> */}
       </Container>
     </>
   );

@@ -7,7 +7,7 @@ import SimpleLayout from './layouts/simple';
 import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
 
-import ProductsPage from './pages/ProductsPage';
+import ProductsPage from './pages/Categories';
 import DashboardAppPage from './pages/DashboardAppPage';
 
 // ----------------------------------------------------------------------
