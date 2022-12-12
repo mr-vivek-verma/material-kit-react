@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 import { useState } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
@@ -52,7 +59,7 @@ export default function Searchbar() {
           </IconButton>
         )}
 
-        <Slide direction="down" in={open} mountOnEnter unmountOnExit>
+        <Slide direction="left" in={open} mountOnEnter unmountOnExit>
           <StyledSearchbar>
             <Input
               autoFocus
@@ -70,6 +77,7 @@ export default function Searchbar() {
               Search Here
             </Button>
           </StyledSearchbar>
+        
         </Slide>
       </div>
     </ClickAwayListener>

@@ -7,8 +7,9 @@ import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } fro
 // mock
 import PRODUCTS from '../_mock/products';
 import CategoryTable from "../components/CategoryTable/CategoryTable"
+import CategoryForm from "../components/CategoryForm/CategoryForm"
 
-
+import Iconify from "../components/iconify/Iconify"
 // ----------------------------------------------------------------------
 
 export default function Categories() {
@@ -33,7 +34,10 @@ export default function Categories() {
           Categories
         </Typography>
         <Typography sx={{display: "flex", justifyContent:" end", m:2}}>
-      <Button sx={{background:"blue", color:"#ffff"}}>Create New</Button>
+      {/* <Button onClick={handleOpenFilter} sx={{background:"blue", color:"#ffff"}}>Create New</Button> */}
+      <Button onClick={handleCloseFilter} variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+            Create New
+          </Button>
          
         </Typography>
         <Typography sx={{display: "flex", justifyContent:" end", m:2}}><input style={{height:"30px"}} placeholder='Search'/></Typography>
@@ -54,6 +58,9 @@ export default function Categories() {
         <ProductList products={PRODUCTS} />
         <ProductCartWidget /> */}
       </Container>
+      <Typography>
+        <CategoryForm/>
+      </Typography>
     </>
   );
 }

@@ -17,6 +17,7 @@ import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 import { TextField } from "formik-material-ui"
 
+
 const useStyle = makeStyles((theme) => ({
   padding: {
     padding: theme.spacing(3),
@@ -26,15 +27,11 @@ const useStyle = makeStyles((theme) => ({
   },
 }))
 
-//Data
+// Data
 const initialValues = {
-  firstName: "",
-  lastName: "",
-  occupation: "",
-  city: "",
-  country: "",
-  email: "",
-  password: "",
+  category: "",
+  size: "",
+ 
 }
 
 const options = [
@@ -45,29 +42,13 @@ const options = [
   { label: "Quality Assurance Tester", value: "quality_assurance_tester" },
 ]
 
-//password validation
-const lowercaseRegEx = /(?=.*[a-z])/
-const uppercaseRegEx = /(?=.*[A-Z])/
-const numericRegEx = /(?=.*[0-9])/
-const lengthRegEx = /(?=.{6,})/
 
-//validation schema
-let validationSchema = Yup.object().shape({
-  firstName: Yup.string().required("Required"),
-  lastName: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string()
-    .matches(
-      lowercaseRegEx,
-      "Must contain one lowercase alphabetical character!"
-    )
-    .matches(
-      uppercaseRegEx,
-      "Must contain one uppercase alphabetical character!"
-    )
-    .matches(numericRegEx, "Must contain one numeric character!")
-    .matches(lengthRegEx, "Must contain 6 characters!")
-    .required("Required!"),
+
+// validation schema
+const validationSchema = Yup.object().shape({
+  category: Yup.string().required("Required"),
+ size: Yup.string().required("Required"),
+
 })
 
 const UserForm = () => {
@@ -81,7 +62,7 @@ const UserForm = () => {
     <Grid container justify="center" spacing={1}>
       <Grid item md={6}>
         <Card className={classes.padding}>
-          <CardHeader title="REGISTER FORM"></CardHeader>
+          <CardHeader title="Create Categories"/>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -90,109 +71,64 @@ const UserForm = () => {
               return (
                 <Form>
                   <CardContent>
-                    <Grid item container spacing={1} justify="center">
+                   <Grid item container spacing={4} justify="center">
                       <Grid item xs={12} sm={6} md={6}>
+                      <InputLabel required shrink htmlFor="bootstrap-input">
+                        Category
+                         </InputLabel>
                         <Field
-                          label="First Name"
+                          label="Enter New Category"
                           variant="outlined"
                           fullWidth
-                          name="firstName"
-                          value={values.firstName}
+                          name="category"
+                          value={values.category}
                           component={TextField}
                         />
                       </Grid>
+                      
                       <Grid item xs={12} sm={6} md={6}>
+                      <InputLabel required shrink htmlFor="bootstrap-input">
+                        Size
+                         </InputLabel>
                         <Field
-                          label="Last Name"
+                          label="Enter Size"
                           variant="outlined"
                           fullWidth
-                          name="lastName"
-                          value={values.lastName}
+                          name="size"
+                          value={values.size}
                           component={TextField}
                         />
                       </Grid>
-
-                      <Grid item xs={12} sm={6} md={12}>
-                        <FormControl fullWidth variant="outlined">
-                          <InputLabel id="demo-simple-select-outlined-label">
-                            Occupation
-                          </InputLabel>
-                          <Select
-                            labelId="demo-simple-select-outlined-label"
-                            id="demo-simple-select-outlined"
-                            label="Occupation"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.occupation}
-                            name="occupation">
-                            <MenuItem>None</MenuItem>
-                            {options.map((item) => (
-                              <MenuItem key={item.value} value={item.value}>
-                                {item.label}
-                              </MenuItem>
-                            ))}
-                          </Select>
-                        </FormControl>
-                      </Grid>
-                      <Grid item xs={12} sm={6} md={6}>
-                        <Field
-                          label="City"
-                          variant="outlined"
-                          fullWidth
-                          name="city"
-                          value={values.city}
-                          component={TextField}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6} md={6}>
-                        <Field
-                          label="Country"
-                          variant="outlined"
-                          fullWidth
-                          name="country"
-                          value={values.country}
-                          component={TextField}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6} md={6}>
-                        <Field
-                          label="Email"
-                          variant="outlined"
-                          fullWidth
-                          name="email"
-                          value={values.email}
-                          component={TextField}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6} md={6}>
-                        <Field
-                          label="Password"
-                          variant="outlined"
-                          fullWidth
-                          name="password"
-                          value={values.password}
-                          type="password"
-                          component={TextField}
-                        />
-                      </Grid>
+                     
+                      
                     </Grid>
                   </CardContent>
                   <CardActions>
                     <Button
-                      disabled={!dirty || !isValid}
                       variant="contained"
                       color="primary"
                       type="Submit"
                       className={classes.button}>
-                      REGISTER
+                      Back
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      type="Submit"
+                      className={classes.button}>
+                  Submit
                     </Button>
                   </CardActions>
+                 
                 </Form>
               )
             }}
           </Formik>
+          
         </Card>
+        
       </Grid>
+     
     </Grid>
   )
 }
