@@ -122,6 +122,7 @@ const UserForm = () => {
                       className={classes.button}>
                   Submit
                     </Button>
+                    <ImageUpload/>
                   </CardActions>
                  
                 </Form>
@@ -130,7 +131,7 @@ const UserForm = () => {
           </Formik>
           
         </Card>
-        <ImageUpload/>
+       
       </Grid>
      
     </Grid>

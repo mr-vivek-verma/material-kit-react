@@ -44,13 +44,6 @@ class index extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello CodeSandbox</h1>
-        <h2>Testing `react-images-upload`</h2>
-
-        <hr />
-
-        <button onClick={this.confirmUpload}>Confirm upload</button>
-
         <UploadComponent
           {...this.state.upload}
           handleChange={this.handleChange}

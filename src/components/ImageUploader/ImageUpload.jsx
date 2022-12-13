@@ -16,7 +16,7 @@ class UploadComponent extends React.Component {
         withIcon={false}
         withLabel={false}
         // withPreview={true}
-        buttonText={"Add photos"}
+        buttonText={"Add Images"}
         fileSizeError={"File size is too big!"}
         fileTypeError={"This extension is not supported!"}
         onChange={this.onDrop}
