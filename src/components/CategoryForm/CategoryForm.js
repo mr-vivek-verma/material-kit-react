@@ -16,6 +16,7 @@ import {
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 import { TextField } from "formik-material-ui"
+import ImageUpload from "../ImageUploader/ImageUpload"
 
 
 const useStyle = makeStyles((theme) => ({
@@ -59,7 +60,9 @@ const UserForm = () => {
   }
 
   return (
+    
     <Grid container justify="center" spacing={1}>
+      {/* <ImageUpload/> */}
       <Grid item md={6}>
         <Card className={classes.padding}>
           <CardHeader title="Create Categories"/>
@@ -76,6 +79,7 @@ const UserForm = () => {
                       <InputLabel required shrink htmlFor="bootstrap-input">
                         Category
                          </InputLabel>
+                         <br/>
                         <Field
                           label="Enter New Category"
                           variant="outlined"
@@ -90,6 +94,7 @@ const UserForm = () => {
                       <InputLabel required shrink htmlFor="bootstrap-input">
                         Size
                          </InputLabel>
+                         <br/>
                         <Field
                           label="Enter Size"
                           variant="outlined"
@@ -99,9 +104,8 @@ const UserForm = () => {
                           component={TextField}
                         />
                       </Grid>
-                     
-                      
-                    </Grid>
+                     </Grid>
+                   
                   </CardContent>
                   <CardActions>
                     <Button
@@ -126,7 +130,7 @@ const UserForm = () => {
           </Formik>
           
         </Card>
-        
+        <ImageUpload/>
       </Grid>
      
     </Grid>

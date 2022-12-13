@@ -10,6 +10,7 @@ import CategoryTable from "../components/CategoryTable/CategoryTable"
 import CategoryForm from "../components/CategoryForm/CategoryForm"
 
 import Iconify from "../components/iconify/Iconify"
+import ImageUpload from '../components/ImageUploader/ImageUpload';
 // ----------------------------------------------------------------------
 
 export default function Categories() {
@@ -59,7 +60,8 @@ export default function Categories() {
         <ProductCartWidget /> */}
       </Container>
       <Typography>
-        <CategoryForm/>
+        {/* <CategoryForm/> */}
+        {/* <ImageUpload/> */}
       </Typography>
     </>
   );

@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 
 import ProductsPage from './pages/Categories';
 import DashboardAppPage from './pages/DashboardAppPage';
+import CategoryForm from './components/CategoryForm/CategoryForm';
 
 // ----------------------------------------------------------------------
 
@@ -21,6 +22,7 @@ export default function Router() {
         { element: <Navigate to="/dashboard/app" />, index: true },
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
+        { path: 'categoryform', element: <CategoryForm/> },
         { path: 'products', element: <ProductsPage /> },
        
       ],
